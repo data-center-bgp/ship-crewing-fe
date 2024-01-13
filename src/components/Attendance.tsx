@@ -57,12 +57,12 @@ export default function Attendance() {
     setIsFormFilled(isFormValid);
     if (isFormValid) {
       if (imgSrc) {
-        handleOpenNotif("Attendance taken successfully!");
+        handleOpenNotif("Absensi terkirim!");
       } else {
-        handleOpenNotif("Please take your photo!");
+        handleOpenNotif("Mohon untuk mengambil foto terlebih dahulu!");
       }
     } else {
-      handleOpenNotif("Please fill in all fields!");
+      handleOpenNotif("Mohon mengisi form absensi terlebih dahulu!");
     }
   };
 

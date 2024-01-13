@@ -18,9 +18,9 @@ const NotificationAttendance: React.FC<NotificationAttendanceProps> = ({
         className="modal-overlay fixed inset-0 bg-black opacity-50"
         onClick={onClose}
       ></div>
-      <div className="modal-container fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-md shadow-lg">
+      <div className="modal-container bg-white rounded-lg shadow-xl transform transition-transform duration-300 ease-in-out fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-8">
         <div className="mt-4">
-          <p className="text-lg text-gray-800">{message}</p>
+          <p className="text-lg font-medium text-gray-900">{message}</p>
         </div>
         <div className="flex justify-end mt-4">
           <Button
@@ -28,6 +28,7 @@ const NotificationAttendance: React.FC<NotificationAttendanceProps> = ({
             onClick={onClose}
             placeholder={"Tutup"}
             color={"red"}
+            ripple={true}
           >
             TUTUP
           </Button>
