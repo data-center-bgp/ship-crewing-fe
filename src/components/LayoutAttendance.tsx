@@ -1,9 +1,13 @@
 import Attendance from "./Attendance";
+import Instructions from "./Instructions";
 
 export default function LayoutAttendance() {
   return (
     <>
-      <Attendance />
+      <div>
+        <Attendance />
+        <Instructions />
+      </div>
     </>
   );
-};
+}
