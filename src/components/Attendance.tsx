@@ -1,6 +1,6 @@
 import Webcam from "react-webcam";
 import { Button, Typography, Spinner, Input } from "@material-tailwind/react";
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import NotificationAttendance from "./AttendanceNotification";
 
 export default function Attendance() {
@@ -12,6 +12,23 @@ export default function Attendance() {
   const [isCapturing, setIsCapturing] = useState(false);
   const [notifOpen, setNotifOpen] = useState(false);
   const [notifMsg, setNotifMsg] = useState("");
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          console.log("Latitude is :", position.coords.latitude);
+          console.log("Longitude is :", position.coords.longitude);
+        },
+        (error) => {
+          console.log(error);
+          handleOpenNotif("Please enable location to continue.");
+        }
+      );
+    } else {
+      handleOpenNotif("Geolocation is not supported by this browser.");
+    }
+  }, []);
 
   const capture = useCallback(() => {
     setIsCapturing(true);
@@ -68,7 +85,7 @@ export default function Attendance() {
 
   return (
     <>
-    <div className="flex flex-row">
+      <div className="flex flex-row">
         <div className="flex flex-col m-12 p-12">
           <Typography variant="h4" color="white" placeholder={""}>
             Form Absensi Crew
@@ -169,5 +186,5 @@ export default function Attendance() {
         </div>
       </div>
     </>
-  )
+  );
 }

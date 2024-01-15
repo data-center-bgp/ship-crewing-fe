@@ -19,7 +19,7 @@ const Instructions = () => {
         ripple={true}
         placeholder=""
       >
-        Show Instructions
+        Instruksi Penggunaan Absensi
       </Button>
       <Collapse open={openInstruction}>
         <Card placeholder="">
