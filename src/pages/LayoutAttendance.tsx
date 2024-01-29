@@ -1,5 +1,5 @@
-import Attendance from "./Attendance";
-import Instructions from "./Instructions";
+import Attendance from "../components/Attendance";
+import Instructions from "../components/Instructions";
 
 export default function LayoutAttendance() {
   return (
