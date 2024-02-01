@@ -3,6 +3,7 @@ import { Card, Input, Button, Typography } from "@material-tailwind/react";
 import axios from "axios";
 import * as yup from "yup";
 import Cookies from 'js-cookie';
+import { useNavigate } from "react-router-dom";
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -12,6 +13,7 @@ const schema = yup.object().shape({
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,6 +30,7 @@ const Login: React.FC = () => {
       Cookies.set('token', response.data.access_token);
       Cookies.set('role', response.data.role);
       Cookies.set('userType', response.data.userType);
+      navigate('/attendance');
     } catch (error) {
       console.log('Error:', error);
     }
